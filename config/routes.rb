@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
 
  
-
+scope module: :users do
   get 'comments/index'
   get 'comments/show'
   get 'comments/new'
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'posts/show'
   get 'posts/new'
   get 'posts/edit'
-
+  get 'users/top' => 'users#top'
+  get 'users/index' => 'users#index'
+end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

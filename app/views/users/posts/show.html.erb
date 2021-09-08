@@ -1,0 +1,50 @@
+<h1>Post Detail</h1>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<!--投稿の詳細ページ-->
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+
+      <div class="col-md-6">
+       <h2>Photo</h2>
+       
+      </div>
+
+
+      <div class="col-md-6 offset-md-1">
+        
+ <table class="table table-hover table-inverse">
+
+
+ <tbody>
+　　　　<td><%= @post.post_detail %></td>
+
+
+     <% if @user.id == current_user.id %>
+        <td><%= link_to "Edit", "/posts/#{@post.id}/edit" %></td>
+        <td><%= link_to "Destroy", "/posts/#{@post.id}",method: :delete %></td>
+     <% end %>
+  </tbody>
+</table>
+
+
+<div>
+<コメント入力欄>
+</div>
+
+<div>
+  <%= form_with(model:[@post, @post_comment]) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", id:"text_area" %>
+  <%= f.submit "送信する", id:"comment_submit" %>
+  <% end %>
+</div>
+
+<div id="favorite_buttons_<%= @post.id %>">
+    <%= render partial: 'favorites/favorit', locals: { book: @post} %>
+</div>
+
+
+    </div>
+  </div>
+</div>

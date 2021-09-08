@@ -1,0 +1,18 @@
+<h1>New Post新規投稿ページ</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+
+
+
+<div class="img_field">
+ <%= form_with model: @post,url: posts_new_path,local:true do |f| %>
+  <dt><%= f.label :文鳥画像,class: "control-label"  %></dt>
+  <dd><%=f.attachment_field :image %></dd>
+  <div class="group">
+        <dt><%= f.label :Column,class: "control-label" %></dt>
+        <dd><%= f.text_area :introduction %></dd>
+        <center><%= f.submit "Post" %></center>
+  </div>
+  <% end %>
+</div>
+
