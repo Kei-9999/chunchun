@@ -1,0 +1,29 @@
+<div class="container px-5 px-sm-0">
+
+<h1>New Post新規投稿ページ</h1>
+<p>new_post_path</p>
+
+
+
+
+<div class="img_field">
+ <%= form_with model: @post,url: posts_path,local:true do |f| %>
+  <dt><%= f.label :文鳥画像,class: "control-label"  %></dt>
+  <dd><%=f.attachment_field :post_image %></dd>
+  <div class="group">
+        <dt><%= f.label :Column,class: "control-label" %></dt>
+        <dd><%= f.text_area :introduction %></dd>
+        <center><%= f.submit "Post" %></center>
+  </div>
+  <% end %>
+ </div>
+</div>
+
+<!--<h2 class="mt-3">New book</h2>-->
+<!--<= form_with model:Book.new, local:true do |f| %>-->
+<!--  <h4>Title</h4>-->
+<!--  %= f.text_field :title %>-->
+<!--  <h4>Opinion</h4>-->
+<!--  %= f.text_area :body %>-->
+<!--  <= f.submit 'Create Book' %>-->
+<!--< end %>-->
