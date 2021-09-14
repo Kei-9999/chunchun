@@ -12,17 +12,34 @@ Rails.application.routes.draw do
   }
 
  
-scope module: :users do
-  get 'comments/index'
-  get 'comments/show'
-  get 'comments/new'
-  get 'comments/edit'
-  get 'posts/index'
-  get 'posts/show'
-  get 'posts/new'
-  get 'posts/edit'
-  get 'users/top' => 'users#top'
-  get 'users/index' => 'users#index'
+# scope module: :users do
+resources :users do
+ get 'relationships/follow' => "relationships#follow", as: "relationship_follow"
+ get 'relationships/follower' => "relationships#follower", as: "relationship_follower"
+  resource :relationships
 end
+
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :posts do
+ resources :comments, only: [:create, :destroy]
 end
+
+resource :likes, only: [:create, :destroy]
+
+ namespace :admin do
+
+    get "top" => "users#index"
+
+    resources :users,only: [:index,:show,:edit,:destroy]
+    resources :posts,only: [:index,:show,:edit,:destroy]
+    # resources :clients,only: [:index,:show,:edit,:update]
+    # resources :orders,only: [:index,:show,:update]
+    # resources :order_items,only: [:update]
+    # get '/search', to: 'searches#search'
+
+end
+
+
+
+end
+
