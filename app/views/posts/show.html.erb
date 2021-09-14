@@ -1,23 +1,42 @@
 <h1>Post Detail</h1>
-<div class="container px-5 px-sm-0">
-    <div class="row">
-    
-      <div class="col-md-6">
-       <%= attachment_image_tag @post, :post_image, size: "300x200", format: 'jpeg' %>
-      </div>
-      
-      <div class="col-md-6 offset-md-1">
-           <h2>Column</h2><thead>
-            <br>
-           <%= @post.post_detail %>
-            <br>
+<div class="container px-1 px-sm-0">
+ <div class="row">
+  <div class="col-md-6">
+    <%= attachment_image_tag @post, :post_image, size: "500x400", format: 'jpeg' %>
+  
+   <br>
+   
+     <div id="likes_buttons_<%= @post.id %>">
+      <%= render 'likes/like', post: @post %>
+　　 </div>
+　</div>
+
+ <div class="row">      
+   <div class="col-md-30">
+     <h2>Column</h2>
+        <br>
+         <%= @post.post_detail %>
+        <br>
+         <% if @user.id == current_user.id %>
+          <td><%= link_to "Edit", "/posts/#{@post.id}/edit" %></td>
+          <td><%= link_to "Destroy", "/posts/#{@post.id}",method: :delete %></td>
+         <% end %>
+        <br>
+       
+       <div id="new-comment">
+         <%= render partial: 'comments/comment', locals: { post: @post} %>
+       </div>
+        <br>
+       <div>
+         <%= form_with(model:[@post, @new_comment], url: post_comments_path(@post.id)) do |f| %>
+         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", id:"text_area" %>
+         <%= f.submit "送信する", id:"comment_submit" %>
+         <% end %>
+       </div>
             
        
-       
-
-       </tbody>
-      </table>
     </div>
+   </div>
   </div>
 </div>
 

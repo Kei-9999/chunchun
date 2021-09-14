@@ -14,24 +14,17 @@ Rails.application.routes.draw do
  
 # scope module: :users do
 resources :users do
-  resources :comments
-  # # get 'comments/index'
-  # # get 'comments/show'
-  # # get 'comments/new'
-  # # get 'comments/edit'
-  
-  # get 'posts/index' => 'posts#index'
-  # get 'posts/:id' => 'posts#show'
-  # get 'posts/new' => 'posts#new'
-  # post "posts/new" => 'posts#create'
-  # get 'posts/edit'
-  # get 'users/top' => 'users#top'
-  # get 'users/index' => 'users#index'
-  
+ get 'relationships/follow' => "relationships#follow", as: "relationship_follow"
+ get 'relationships/follower' => "relationships#follower", as: "relationship_follower"
+  resource :relationships
 end
- # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-resources :posts
 
+ # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+resources :posts do
+ resources :comments, only: [:create, :destroy]
+end
+
+resource :likes, only: [:create, :destroy]
 
  namespace :admin do
 
