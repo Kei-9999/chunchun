@@ -26,9 +26,9 @@ end
 
 resource :likes, only: [:create, :destroy]
 
- namespace :admin do
+ namespace :admins do
 
-    get "top" => "users#index"
+    get "top" => "admin/users#index"
 
     resources :users,only: [:index,:show,:edit,:destroy]
     resources :posts,only: [:index,:show,:edit,:destroy]
