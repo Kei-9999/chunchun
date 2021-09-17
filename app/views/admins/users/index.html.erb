@@ -1,1 +1,37 @@
 <h1>管理者用ユーザー一覧ページ</h1>
+
+<div class="font">
+  <div class="item-visual">
+ 　<div class="container bg-light text-dark">
+
+   <h4>▼会員一覧</h4>
+     <div class="p-3 mb-2 bg-white text-dark">
+      <div class="col-12">
+       <table class="table table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th></th>
+          
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= link_to user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= link_to 'Delete', admins_user_path(@users), method: :delete ,class: 'fas fa-book-open nav-link text-light' %></td>
+              <!--idを入れる-->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!--%= paginate @users %>-->
+    </div>
+   </div>
+  </div>
+ </div>

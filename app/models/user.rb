@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  belongs_to :admin
   
   def follow(user_id)
    relationships.create(followed_id: user_id)
