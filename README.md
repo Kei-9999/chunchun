@@ -15,7 +15,8 @@
 文鳥の飼い主、または文鳥が好きな人。
 
 ### 主な利用シーン
-文鳥を見たくなった時、文鳥の魅力を誰かとシェアしたい時
+文鳥を見たくなった時、文鳥の魅力を誰かとシェアしたい時。
+
 
 ## 設計書
 ER図：https://drive.google.com/file/d/1HYRnS6wCF1rQawkgo0ke9lNtmFlJwfL7/view?usp=sharing<br>

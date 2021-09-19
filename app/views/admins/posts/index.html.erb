@@ -1,0 +1,53 @@
+<h1>管理者All Posts投稿一覧</h1>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+   <h2>posts</h2>
+
+
+ <table class="table table-hover table-inverse">
+
+   <thead>
+     <tr>
+      <th>User_ID</th>
+ 　  　 <th>User</th>
+      <th>Photo</th>
+      <th class="title-left">Column</th>
+      <th>Kawaii</th>
+      <th>comment</th>
+      <th></th>
+     </tr>
+   </thead>
+
+    <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+            <td><%= post.user_id %></td>
+          　<td>
+          　<%= post.user.name %>
+          　  <br><%= link_to admins_user_path(post.user) do %>
+             <%= attachment_image_tag post.user, :user_image, size: "80x80", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %>
+             <% end %>
+            </td>
+            <td>
+             <%= link_to admins_post_path(post) do %>
+              <%=  attachment_image_tag post, :post_image, size: "150x100", format: 'jpeg', fallback: "no_image.jpg"  %>
+             <% end %>
+            </td>   
+            <td class="post-column"><%= post.post_detail %></td>
+            <td><%= post.likes.count %></td>
+           <td><%= post.comments.count %></td>
+           <td><%= link_to 'Delete', admins_post_path(post.id), method: :delete %></td>
+        </tr>
+        <% end %>
+
+    </tbody>
+</table>
+
+
+
+
+    </div>
+  </div>
+</div>

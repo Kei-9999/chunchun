@@ -23,7 +23,7 @@
         <tr>
           　<td>
              <%= link_to user_path(post.user) do %>
-　　          <%= attachment_image_tag post.user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %>
+             <%= attachment_image_tag post.user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %>
              <% end %>
             </td>
             <td>
@@ -43,9 +43,6 @@
 
     </tbody>
 </table>
-
-
-
 
     </div>
   </div>

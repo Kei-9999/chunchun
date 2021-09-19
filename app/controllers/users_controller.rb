@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
   def index
     @users = User.all
-     
   end
   
   def edit
@@ -25,6 +24,13 @@ class UsersController < ApplicationController
 
       render action: :edit
      end
+  end
+  
+  def destroy
+      @user = User.find(params[:id]) 
+      @user.destroy
+      flash[:notice] = 'ユーザーを削除しました。'
+      redirect_to :root
   end
   
 private
