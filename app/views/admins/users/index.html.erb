@@ -22,9 +22,12 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.id %></td>
-              <td><%= link_to user.name %></td>
+              <td><%= link_to admins_user_path(user) do %>
+                  <%= user.name %>
+                  <% end %>
+　            </td>
               <td><%= user.email %></td>
-              <td><%= link_to 'Delete', admins_user_path(@users), method: :delete ,class: 'fas fa-book-open nav-link text-light' %></td>
+              <td><%= link_to 'Delete', admins_user_path(user.id), method: :delete %></td>
               <!--idを入れる-->
             </tr>
           <% end %>
