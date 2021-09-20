@@ -24,7 +24,7 @@ resources :posts do
  resources :comments, only: [:create, :destroy]
 end
 
-get "users/check" => "clients#check"
+get "users/check" => "users#check"
 
 resource :likes, only: [:create, :destroy]
 

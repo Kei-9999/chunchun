@@ -1,0 +1,22 @@
+<h1>退会確認ページ</h1>
+
+<div class="font">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 text-center font-weight-bold" >本当に退会しますか？</div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col text-center">
+      退会すると、会員登録情報や</br>
+      これまでの投稿・コメントが全て削除されます。</br>
+      退会する場合は、「退会する」をクリックしてください。
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mt-5 mb-5">
+    <%= link_to "退会しない", user_path(current_user), class:"mr-3 moe-btn" %>
+    <%= link_to "退会する", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+  </div>
+</div>
+</div>
