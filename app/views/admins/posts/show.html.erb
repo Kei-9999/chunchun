@@ -12,7 +12,7 @@
         <br>
          <%= @post.post_detail %>
         <br>
-         <td><%= link_to "Destroy", "/admins/posts/#{@post.id}",method: :delete %></td>
+         <td><%= link_to "Delete", "/admins/posts/#{@post.id}",method: :delete %></td>
         <br>
          <div class="comments">
           <p>コメント件数：<%= @post.comments.count %></p>
