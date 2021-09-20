@@ -24,7 +24,11 @@ resources :posts do
  resources :comments, only: [:create, :destroy]
 end
 
+get "users/check" => "clients#check"
+
 resource :likes, only: [:create, :destroy]
+
+resource :kawaii, only: [:create]
 
  namespace :admins do
 
