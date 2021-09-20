@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :user_image
+
   
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", :dependent => :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
