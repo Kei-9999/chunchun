@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
- 
+ get "users/check" => "users#check"
 # scope module: :users do
 resources :users do
  get 'relationships/follow' => "relationships#follow", as: "relationship_follow"
@@ -24,21 +24,18 @@ resources :posts do
  resources :comments, only: [:create, :destroy]
 end
 
-get "users/check" => "users#check"
 
 resource :likes, only: [:create, :destroy]
 
 resource :kawaii, only: [:create]
 
- namespace :admins do
-
-    get "top" => "admin/users#index"
-
-    resources :users,only: [:index,:show,:edit,:destroy]
-    resources :posts,only: [:index,:show,:edit,:destroy]
+ 
+namespace :admins do
+ get "top" => "admin/users#index"
+  resources :users,only: [:index,:show,:edit,:destroy]
+  resources :posts,only: [:index,:show,:edit,:destroy]
 
     # get '/search', to: 'searches#search'
-
 end
 
 

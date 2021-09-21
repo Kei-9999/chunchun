@@ -12,7 +12,7 @@
      <tr>
  　　 <th>User</th>
       <th>Photo</th>
-      <th>Column</th>
+      <th class="title-left">Column</th>
       <th>Kawaii</th>
       <th>comment</th>
      </tr>
@@ -31,11 +31,15 @@
               <%=  attachment_image_tag post, :post_image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg"  %>
              <% end %>
             </td>   
-            <td><%= post.post_detail %></td>
+            <td class="post-column"><%= post.post_detail %></td>
             <td>
+              <% if post.user.id != current_user.id %> 
               <div id="likes_buttons_<%= post.id %>">
                <%= render 'likes/like', post: post %>
               </div>
+              <% else %>
+              <p><%= post.likes.count %></p>
+              <% end %>
             </td>
            <td><%= post.comments.count %></td>
         <!--</tr>-->

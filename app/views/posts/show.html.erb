@@ -5,11 +5,13 @@
     <%= attachment_image_tag @post, :post_image, size: "500x400", format: 'jpeg' %>
   
    <br>
-   
+   <br>
+     <% if @user.id != current_user.id %>
      <div id="likes_buttons_<%= @post.id %>">
       <%= render 'likes/like', post: @post %>
 　　 </div>
-　　 <div id="kawaii_buttons_<%= @post.id %>">
+　　 <% end %>
+　　 <div id="kawaii_buttons_%= @post.id %>">
       <%= render 'kawaiis/kawaii', post: @post %>
 　　 </div>
 　</div>
