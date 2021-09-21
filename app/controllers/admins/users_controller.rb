@@ -4,10 +4,15 @@ class Admins::UsersController < ApplicationController
   @users = User.all
  end
 
+ def show
+  @posts = Post.all
+  @user = User.find(params[:id])
+ end
+
  def destroy
-  @users = User.find(params[:id])
-    user.destroy
-    redirect_to admins_users_path(id: current_admin)
+  user = User.find(params[:id])
+  user.destroy
+  redirect_to admins_users_path
  end
 
 end

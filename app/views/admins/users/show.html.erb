@@ -1,0 +1,61 @@
+<h1>管理者側ユーザーshowページ</h1>
+
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-3">
+    <h2>User info</h2>
+    <td><%= link_to admins_user_path(@user) do %>
+       <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+      <% end %>
+　   </td>
+      <table class="table">
+       <tbody>
+        <tr></tr>
+         <tr>
+  	       <th>name</th>
+  	        <br>
+  	       <th><%= @user.name %></th>
+           </tr>
+           <tr>
+  	         <th>introduction</th>
+  	         <br>
+  	         <th><%= @user.introduction %></th>
+           </tr>
+           <tr>
+            <th>follows</th>
+             <td><%= @user.followings.count %></td>
+           </tr>
+            <th>followers</th>
+            <td><%= @user.followers.count %></td>
+      </tbody>
+    </table>
+</div>
+ 
+ <!--右側-->
+      <div class="col-md-8">
+        <h2>Posts</h2>
+          <table class="table table-hover table-inverse">
+           <thead>
+            <tr>
+            
+             <th>Photo</th>
+             <th>Column</th>
+             <th></th>
+            </tr>
+           </thead>
+       <tbody>
+        <% @user.posts. each do |post| %><tr>
+　　　　　　<td><%= link_to admins_post_path(post) do %>
+                <%= attachment_image_tag post, :post_image, size: "300x250", format: 'jpeg', fallback: "no_image.jpg" %>
+                <% end %>
+　          </td>
+            <td><%= post.post_detail %></td>
+　　　　　　<td><%= link_to 'Delete', admins_post_path(post.id), method: :delete %></td>
+          </tr>
+        <% end %>
+
+       </tbody>
+      </table>
+    </div>
+  </div>
+</div>

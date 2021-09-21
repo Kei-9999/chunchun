@@ -1,0 +1,35 @@
+<h1>管理者用投稿詳細ページPost Detail</h1>
+<div class="container px-1 px-sm-0">
+ <div class="row">
+  <div class="col-md-6">
+    <%= attachment_image_tag @post, :post_image, size: "500x400", format: 'jpeg' %>
+   <br>
+　</div>
+
+ <div class="row">      
+   <div class="col-md-30">
+     <h2>Column</h2>
+        <br>
+         <%= @post.post_detail %>
+        <br>
+         <td><%= link_to "Delete", "/admins/posts/#{@post.id}",method: :delete %></td>
+        <br>
+         <div class="comments">
+          <p>コメント件数：<%= @post.comments.count %></p>
+           <% @post.comments.each do |comment| %>
+            <p><%= link_to admins_user_path(comment.user) do %>
+           <%= attachment_image_tag comment.user, :user_image, size: "50x50", fallback: "no_image.jpg", size: "50x50" %><br></p>
+           <% end %>
+           <%= comment.user.name %>
+           <%= comment.created_at.strftime('%Y/%m/%d') %>
+           <br>
+           <%= comment.comment %>
+         <div class="comment-delete">
+          <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, remote: true%>
+         </div>
+         <% end %> 
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
