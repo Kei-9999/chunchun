@@ -40,6 +40,10 @@
               <% else %>
               <p><%= post.likes.count %></p>
               <% end %>
+              <br>
+              <div id="kawaii_buttons_<%= post.id %>">
+              <%= render 'kawaiis/kawaii', post: post %>
+              </div>
             </td>
            <td><%= post.comments.count %></td>
         <!--</tr>-->

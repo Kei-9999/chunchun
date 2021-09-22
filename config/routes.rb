@@ -38,7 +38,7 @@ namespace :admins do
   resources :users,only: [:index,:show,:edit,:destroy]
   resources :posts,only: [:index,:show,:edit,:destroy]
 
-    # get '/search', to: 'searches#search'
+
 end
 
 Rails.application.routes.draw do
@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 end
 
+  get '/search', to: 'searches#search'
 
 end
 

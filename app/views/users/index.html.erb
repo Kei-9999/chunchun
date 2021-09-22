@@ -1,6 +1,19 @@
 <h1>Usersユーザー一覧ページ</h1>
 <div class="container px-5 px-sm-0">
 <table class="table table-hover table-inverse">
+ 
+ <div class="search-form">
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+<div class="post-list">
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+</div>
+
  <thead>
   <tr>
    <th>Image</th>

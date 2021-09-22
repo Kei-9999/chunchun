@@ -37,6 +37,12 @@ class UsersController < ApplicationController
       redirect_to :root
   end
   
+  def search
+      @users = User.search(params[:keyword])
+      @keyword = params[:keyword]
+      render "index"
+  end
+  
 private
  def user_params
     params.require(:user).permit(:name, :introduction, :user_image)
