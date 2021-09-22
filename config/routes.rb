@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 end
 
-  get '/search', to: 'searches#search'
+  get '/search', to: 'users#search'
 
 end
 
