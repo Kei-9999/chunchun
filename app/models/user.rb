@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
   
   def self.search(keyword)
-    where(["name like? OR post_detail like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["name like?" , "%#{keyword}%" ])
   end
   
 end
