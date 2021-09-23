@@ -1,20 +1,19 @@
-<h1>All Posts投稿一覧</h1>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
  <div class="container px-5 px-sm-0">
   <div class="row">
-   <h2>posts</h2>
 
+<h2>♡かわいい文鳥たち♡</h2>
 
  <table class="table table-hover table-inverse">
 
    <thead>
      <tr>
-      <th>User</th>
-      <th>Photo</th>
-      <th class="title-left">Column</th>
-      <th>Kawaii</th>
-      <th>comment</th>
+      <th>ごしゅじん</th>
+      <th>♡ぶんちょう♡</th>
+      <th class="title-left">エピソード</th>
+      <th>♡おうえん♡</th>
+      <th>♡ひとこと♡</th>
      </tr>
    </thead>
 
@@ -38,7 +37,7 @@
                <%= render 'likes/like', post: post %>
               </div>
               <% else %>
-              <p><%= post.likes.count %></p>
+              <p>♥<%= post.likes.count %>いいね</p>
               <% end %>
               <br>
               <div id="kawaii_buttons_<%= post.id %>">

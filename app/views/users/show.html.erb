@@ -3,30 +3,30 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
    <div class="col-md-3">
-     <h2>User info</h2>
+     <h2>♡とまり木♡</h2>
        <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
         <table class="table">
          <tbody>
            <tr></tr>
             <tr>
-  	         <th>name</th>
+  	         <th>なまえ</th>
   	          <br>
   	          <th><%= @user.name %></th>
            </tr>
            <tr>
-  	        <th>introduction</th>
+  	        <th>さえずり</th>
   	        <br>
   	        <th><%= @user.introduction %></th>
            </tr>
            <tr>
-            <th>follows</th>
+            <th>♡追っかけ♡</th>
              <td>
               <%= link_to user_relationship_follow_path(@user) do %>
               <%= @user.followings.count %>
               <% end %>
              </td>
            </tr>
-            <th>followers</th>
+            <th>♡ファン♡</th>
             <td>
               <%= link_to user_relationship_follower_path(@user) do %>
               <%= @user.followers.count %>
@@ -36,9 +36,9 @@
             <td>
              <% if @user.id != current_user.id %>
               <% if current_user.following?(@user) %>
-               <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+               <%= link_to "放っておく", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
               <% else %>
-               <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+               <%= link_to "追っかける", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
               <% end %>
              <% end %>
            </td>
@@ -56,13 +56,13 @@
  
  <!--右側-->
       <div class="col-md-8">
-        <h2>Posts</h2>
+        <h2>文鳥との日々</h2>
           <table class="table table-hover table-inverse">
            <thead>
             <tr>
             
-             <th>Photo</th>
-             <th class="title-left">Column</th>
+             <th>♡文鳥♡</th>
+             <th class="title-left">エピソード</th>
              <th colspan="3"></th>
             </tr>
            </thead>

@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 end
 
+  get 'home/about' => 'homes#about'
+  
   get '/search', to: 'users#search'
 
 end
