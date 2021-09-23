@@ -1,9 +1,11 @@
-<h1>退会確認ページ</h1>
+
 
 <div class="font">
 <div class="container">
   <div class="row mt-5">
-    <div class="col-12 text-center font-weight-bold" >本当に退会しますか？</div>
+    <div class="col-12 text-center font-weight-bold" >
+      <h1>本当に巣立ちますか？（退会確認）</h1>
+    </div>
   </div>
 
   <div class="row mt-5">
@@ -15,8 +17,8 @@
   </div>
 
   <div class="row d-flex justify-content-center mt-5 mb-5">
-    <%= link_to "退会しない", user_path(current_user), class:"mr-3 moe-btn" %>
-    <%= link_to "退会する", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+    <%= link_to "巣箱に戻る", user_path(current_user), class:"mr-3 moe-btn" %>
+    <%= link_to "巣立つ", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %>
   </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-<h1>Post Detail</h1>
+<h1>♡ぶんちょう♡</h1>
 <div class="container px-1 px-sm-0">
  <div class="row">
   <div class="col-md-6">
@@ -9,7 +9,9 @@
      <% if @user.id != current_user.id %>
      <div id="likes_buttons_<%= @post.id %>">
       <%= render 'likes/like', post: @post %>
-      </div>
+     </div>
+      <% else %>
+      <p>♥<%= @post.likes.count %>いいね</p>
       <% end %>
       <div id="kawaii_buttons_<%= @post.id %>">
       <%= render 'kawaiis/kawaii', post: @post %>
@@ -18,7 +20,7 @@
 
  <div class="row">      
    <div class="col-md-30">
-     <h2>Column</h2>
+     <h2>エピソード</h2>
         <br>
          <%= @post.post_detail %>
         <br>
