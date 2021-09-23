@@ -1,4 +1,3 @@
-<h1>管理者All Posts投稿一覧</h1>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
  <div class="container px-5 px-sm-0">
@@ -41,8 +40,9 @@
            <td><%= link_to 'Delete', admins_post_path(post.id), method: :delete %></td>
         </tr>
         <% end %>
-
+         
     </tbody>
+    <td><%= paginate @posts %></td>
 </table>
 
 

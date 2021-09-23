@@ -5,7 +5,7 @@
 
 <h2>♡かわいい文鳥たち♡</h2>
 
- <table class="table table-hover table-inverse">
+ <table class="table table-hover table-striped">
 
    <thead>
      <tr>
@@ -27,7 +27,7 @@
             </td>
             <td>
              <%= link_to post_path(post) do %>
-              <%=  attachment_image_tag post, :post_image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg"  %>
+              <%=  attachment_image_tag post, :post_image, size: "250x180", format: 'jpeg', fallback: "no_image.jpg"  %>
              <% end %>
             </td>   
             <td class="post-column"><%= post.post_detail %></td>
@@ -50,7 +50,7 @@
 
     </tbody>
 </table>
-
+<%= paginate @posts %>
     </div>
   </div>
 </div>

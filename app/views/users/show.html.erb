@@ -36,9 +36,9 @@
             <td>
              <% if @user.id != current_user.id %>
               <% if current_user.following?(@user) %>
-               <%= link_to "放っておく", user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+               <%= link_to "放っておく", user_relationships_path(@user.id), method: :delete, class: "nae-btn" %>
               <% else %>
-               <%= link_to "追っかける", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+               <%= link_to "追っかける", user_relationships_path(@user.id), method: :post, class: "moe-btn" %>
               <% end %>
              <% end %>
            </td>
@@ -49,11 +49,11 @@
 
    <div class="row">
     <% if @user.id == current_user.id %> 
-     <%= link_to "羽繕い",edit_user_path(@user.id), class: "btn btn-secondary btn-block fas fa-theater-masks"  %>
+     <%= link_to "羽繕い",edit_user_path(@user.id), class: "btn btn-secondary btn-block fas fa-feather"  %>
     <% end %>
    </div>
   </div>
- 
+
  <!--右側-->
       <div class="col-md-8">
         <h2>文鳥との日々</h2>

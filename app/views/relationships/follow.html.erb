@@ -1,31 +1,39 @@
-<h2>Follow Users</h2>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class="container px-5 px-sm-0">
+  
+   
+ <h2>♡追っかけ中♡</h2>
 
-<table class="table table-hover table-inverse">
-<% if @users.exists? %>
-  <thead>
-    <tr>
+  <div class="row">
+  <table class="table table-hover table-inverse">
+   <% if @users.exists? %>
+    <thead>
+     <tr>
       <th>imeges</th>
       <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <th>♡追っかけ中</th>
+      <th>♡ファン♡</th>
+     </tr>
+    </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= attachment_image_tag user, :user_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %></td>
         <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followers.count %></td>
-        <td>フォロワー数: <%= user.followings.count %></td>
+        <td><%= user.followers.count %></td>
+        <td><%= user.followings.count %></td>
         <td>
-           <%= link_to "Show", "/users/#{user.id}" %>
+           <%= link_to "見にいく！", "/users/#{user.id}", class: "moe-btn" %>
         </td>
       </tr>
 
     <% end %>
   </tbody>
 </table>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
-</table>
+   <% else %>
+    <h4>ユーザーはいません</h4>
+   <% end %>
+  </table>
+ </div>
+</div>
