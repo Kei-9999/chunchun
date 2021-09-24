@@ -22,15 +22,15 @@
   <table class="table">
     <tr>
       <th>お名前<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :name %></td>
+      <td><%= f.text_field :name, :size=>"60" %></td>
     </tr>
     <tr>
       <th>メールアドレス<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :email %></td>
+      <td><%= f.text_field :email, :size=>"60" %></td>
     </tr>
     <tr>
       <th>お問い合わせ内容</th>
-      <td><%= f.text_area :message %></td>
+      <td><%= f.text_area :message, :size=>"60x10" %></td>
     </tr>
  
   <tr class="center-block">

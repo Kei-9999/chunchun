@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @users = User.all.page(params[:page]).per(10).order(id: "DESC")
   end
   
   def edit
