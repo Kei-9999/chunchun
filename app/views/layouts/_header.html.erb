@@ -1,10 +1,18 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <%= link_to "", root_path, class: "navbar-brand"  %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="ml-0">
+      <div class="text-center ml-0">
+        <% if user_signed_in? %>
+          <%= link_to image_tag("logo.jpg", size: "180x80" ), user_path(current_user) %>
+        <% elsif admin_signed_in? %>
+          <%= image_tag("logo.jpg", size: "180x80") %>
+        <% else %>
+          <%= link_to image_tag("logo.jpg", size: "180x80" ), root_path %>
+        <% end %>
+      </div>
+    </div>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
@@ -13,7 +21,6 @@
           <li><%= link_to '文鳥自慢',new_post_path ,class: 'fas fa-grin-beam nav-link text-light'%></li>
           <li><%= link_to '文鳥仲間',users_path ,class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to '文鳥写真',posts_path ,class: 'fas fa-solid fa-images nav-link text-light'%></li>
-          <li><%= link_to 'お問い合わせ',inquiry_path ,class: 'fab fa-weixin nav-link text-light'%></li>
           <li><%= link_to 'とびたつ', destroy_user_session_path, method: :delete ,class: 'fas fa-solid fa-dove nav-link text-light' %></li>
 
         <% elsif admin_signed_in? %>

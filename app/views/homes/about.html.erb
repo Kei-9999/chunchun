@@ -1,35 +1,99 @@
-
 <div class="container">
-  <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-7">
-      <h1><strong>"ちゅんちゅん”について</strong></h1>
-     　 <br>
-      　<br>
-     <div class="row justify-content-center">
-      <p>このアプリケーションは、文鳥を愛してやまない文鳥ファンが </p>
-      <p>文鳥の画像を投稿したり見たりして交流をはかるサイトです。</p>
-      <p> かわいい文鳥をたくさん見て、明日からの活力にしましょう！</p>
-     </div>
-     </div>
-        <br>
-        <br>
-        <br>
-        <br>
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-7">
+    <div class="row">
+      <div class="mx-auto col-1 col-sm-2 col-lg-4 col-xl-6">
+        <br></br>
+        <div class="top2 mr-4 text-center">
+          <%= image_tag("sakura.jpg", size:"300x400") %>
+        </div>
+        <br><br>
         <h4><strong>このアプリケーションの特徴</strong></h4>
         <br>
-        <p>多くのSNSと同じように、「いいね」「コメント」「フォロー」機能があります。</p>
-     <br>
+        <p>お馴染みの「いいね」「コメント」「フォロー」機能があります。</p>
         <p>それらに加えて、<strong>「かわいいね」</strong>機能をご用意いたしました！</p>
-     <br>
         <p>「かわいいね」は何回押しても数が増え続けます。</p>
      <br>
-        <strong>文鳥への「かわいいね」が減るはずがありませんから☆</strong>
+        <h5><strong>文鳥への「かわいいね」が減るはずがありませんから☆</strong></h5>
      <br>
         <p>心ゆくまで「かわいいね」を押してください！</p>
+        <br>
+        <% if user_signed_in? %>
+        <% else %>
+        <div class="btn-wrapper col-10 mx-auto">
+          <div>
+            <%= link_to "ログイン", new_user_session_path, class: "btn moe-btn btn-sm btn-block mb-3 sign_in"%>
+          </div>
+          <div>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn moe-btn btn-sm btn-block sign_up"%>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <!--右側-->
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+  
+    <% if user_signed_in? %>
+     <br></br>
+      <div class="row justify-content-center">
+        <h5>文鳥を愛でるアプリケーション</h5>
+        <h2><strong>"ちゅんちゅん”</strong>用語について</h2>
+      </div>
+      <br>
      
+  <table class="table table-hover table-striped">
+    <tr>
+      <th>用語</th>
+      <th>意味</th>
+    </tr>
+    <tr>
+      <td>ごしゅじん</td>
+      <td>投稿者</td>
+    </tr>
+    <tr>
+      <td>巣箱</td>
+      <td>投稿者のトップページ</td>
+    </tr>
+    <tr>
+      <td>さえずり</td>
+      <td>自己紹介</td>
+    </tr>
+    <tr>
+      <td>追っかけ・ファン</td>
+      <td>フォロー・フォロワー</td>
+    </tr>
+    <tr>
+      <td>羽繕い</td>
+      <td>編集（プロフィール、投稿画像）</td>
+    </tr>
+    <tr>
+      <td>とびたつ</td>
+      <td>ログアウト</td>
+    </tr>
+    <tr>
+      <td>巣立ち</td>
+      <td>退会</td>
+    </tr>
+  
+  
+  
+  </table>
+     
+    
       
-      
-    </div>
+    <% else %>
+     <div class="row justify-content-center">
+      <h5>このアプリケーションは、文鳥を愛してやまない文鳥ファンが </h5>
+      <br>
+      <h5>文鳥の画像を投稿したり見たりして交流をはかるサイトです。</h5>
+      <h5>おうちの文鳥や、お気に入りの画像を投稿してください。</h5>
+      <h5>かわいい文鳥をたくさん見て、明日からの活力にしましょう！</h5>
+    
+        <br><br><br><br><br><br><br><br>
+     
+      </div>
+    <% end %> 
+       <div class="top2 mr-4 text-center">
+          <%= image_tag("haku2.jpg", size:"300x400") %>
+       </div>
+   </div>
   </div>
 </div>

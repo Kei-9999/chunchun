@@ -3,8 +3,10 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
    <div class="col-md-3">
-     <h2>♡とまり木♡</h2>
+     <h2 class= text-center>♡とまり木♡</h2>
+      <div class = text-center>
        <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+      </div>
         <table class="table">
          <tbody>
            <tr></tr>
@@ -49,7 +51,11 @@
 
    <div class="row">
     <% if @user.id == current_user.id %> 
-     <%= link_to "羽繕い",edit_user_path(@user.id), class: "btn btn-secondary btn-block fas fa-feather"  %>
+     <div class="btn-wrapper col-10 mx-auto">
+       <div class = text-center>
+        <%= link_to  "羽繕い",edit_user_path(@user.id), class: "moe-btn btn-block btn-sm btn-block mb-3 fas fa-feather" %>
+       </div>
+     </div>
     <% end %>
    </div>
   </div>
@@ -63,26 +69,27 @@
             
              <th>♡文鳥♡</th>
              <th class="title-left">エピソード</th>
-             <th colspan="3"></th>
+             <th></th>
             </tr>
            </thead>
        <tbody>
-        <% @user.posts. each do |post| %><tr>
+        <% @posts.each do |post| %><tr>
 
             <td><%= link_to post_path(post) do %>
-                <%= attachment_image_tag post, :post_image, size: "400x300", format: 'jpeg', fallback: "no_image.jpg" %>
+                <%= attachment_image_tag post, :post_image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg" %>
                 <% end %>
             </td>
 
             <td class="post-column"><%= post.post_detail %></td>
             
-            <td></td>
+            <td><%= post.comments.count %></td>
 
           </tr>
            <% end %>
 
        </tbody>
       </table>
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

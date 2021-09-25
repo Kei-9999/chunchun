@@ -1,28 +1,27 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<main>
-
-<div class="container">
-  <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-7">
-      <h1>ようこそ<i class="fas fa-dove"></i><strong>ちゅんちゅん</strong> <i class="fas fa-dove"></i>へ！</h1>
-      <br>
-      <br>
-     <div class="row justify-content-center">
-      <p>文鳥を愛でるアプリケーション  <i class="fas fa-dove"></i></i><strong>"ちゅんちゅん"</strong> <i class="fas fa-dove"></i>は、 </p>
-      <p>文鳥を愛してやまない文鳥ファンで作る</p>
-      <p> 文鳥画像交流サイトです!</p>
-     </div>
-      <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
-          <a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="/users/sign_in">巣箱に入る</a>
+<div class="container mt-5">
+    <div class="row">
+      <div class="mx-auto col-1 col-sm-2 col-lg-4 col-xl-6">
+        <br></br>
+        <div class="top2 mr-4 text-center">
+          <%= image_tag("logo.jpg", size:"500x300") %>
         </div>
-        <div class="row">
-          <a class='"nae-btn" btn-sm btn-block sign_up' href="/users/sign_up">仲間になる</a>
+      </div>
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <br></br>
+        <h2>ようこそ<i class="fas fa-dove"></i><strong>ちゅんちゅん</strong> <i class="fas fa-dove"></i>へ！</h2>
+        <br></br>
+         <p>文鳥を愛でるアプリケーション<i class="fas fa-dove"></i></i><strong>"ちゅんちゅん"</strong> <i class="fas fa-dove"></i>は、 </p>
+         <p>文鳥を愛してやまない文鳥ファンで作る</p>
+         <p> 文鳥画像交流サイトです!</p>
+        <br></br>
+        <div class="btn-wrapper col-10 mx-auto">
+          <div>
+            <%= link_to "ログイン", new_user_session_path, class: "btn moe-btn btn-sm btn-block mb-3 sign_in"%>
+          </div>
+          <div>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn moe-btn btn-sm btn-block sign_up"%>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-</main>

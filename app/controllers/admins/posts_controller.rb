@@ -1,7 +1,7 @@
 class Admins::PostsController < ApplicationController
     
     def index
-        @posts = Post.all.page(params[:page]).per(10)
+        @posts = Post.all.page(params[:page]).per(10).order(id: "DESC")
     end
     
     def show

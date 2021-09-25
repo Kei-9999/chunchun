@@ -38,3 +38,58 @@
   color: #CDDC39;
   border-radius: 10px;
 }
+
+.all_background {
+  background-color: #FFEEFF;
+  min-height: 100vh;
+}
+
+.footer_menu {
+  display: flex;
+  justify-content: flex-end;
+  
+  ul {
+
+    li {
+      background-color: hotpink;
+      padding: 0;
+      
+      span {
+        margin-right: -5px;
+      }
+    }
+  }
+}
+
+.main-color {
+
+    background-color: #FFEEFF;
+    margin-padding: 30px; /* 下側の外側の余白 */
+    // min-height:700px;
+}
+
+header{
+  background-color:hotpink;
+}
+
+footer{
+  background-color:hotpink;
+}
+
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}

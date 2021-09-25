@@ -27,10 +27,10 @@
          <%= f.text_area :body,class:"form-control" %>
       </div>
          <br>
-           <%= f.submit '羽繕い完了',class:"btn btn-success" %>
+           <%= f.submit '羽繕い完了',class:"moe-btn" %>
 
            <br>
-           <%= link_to "文鳥画像", post_path(@post.id) %> | <%= link_to "もどる", posts_path %></p>
+           <%= link_to "もどる", post_path(@post.id), class: "nae-btn" %>
         <% end %>
       </div>
     </div>

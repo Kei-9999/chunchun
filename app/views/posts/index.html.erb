@@ -30,7 +30,7 @@
               <%=  attachment_image_tag post, :post_image, size: "250x180", format: 'jpeg', fallback: "no_image.jpg"  %>
              <% end %>
             </td>   
-            <td class="post-column"><%= post.post_detail %></td>
+            <td class="post-column", width="430"><%= post.post_detail %></td>
             <td>
               <% if post.user.id != current_user.id %> 
               <div id="likes_buttons_<%= post.id %>">
@@ -48,9 +48,8 @@
         <!--</tr>-->
         <% end %>
 
-    </tbody>
-</table>
-<%= paginate @posts %>
-    </div>
+     </tbody>
+    </table>
+   <%= paginate @posts %>
   </div>
 </div>

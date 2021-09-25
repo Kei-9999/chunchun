@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @posts = Post.all
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page]).per(5).order(id: "DESC")
   end
   def index
     @users = User.all.page(params[:page]).per(10).order(id: "DESC")
