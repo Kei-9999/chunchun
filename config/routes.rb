@@ -37,6 +37,7 @@ namespace :admins do
  get "top" => "admin/users#index"
   resources :users,only: [:index,:show,:edit,:destroy]
   resources :posts,only: [:index,:show,:edit,:destroy]
+  resources :post_comment,only: [:destroy]
 
 
 end
