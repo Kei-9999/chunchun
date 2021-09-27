@@ -16,17 +16,7 @@
      <br>
         <p>心ゆくまで「かわいいね」を押してください！</p>
         <br>
-        <% if user_signed_in? %>
-        <% else %>
-        <div class="btn-wrapper col-10 mx-auto">
-          <div>
-            <%= link_to "ログイン", new_user_session_path, class: "btn moe-btn btn-sm btn-block mb-3 sign_in"%>
-          </div>
-          <div>
-            <%= link_to "新規登録", new_user_registration_path, class: "btn moe-btn btn-sm btn-block sign_up"%>
-          </div>
-        </div>
-        <% end %>
+        
       </div>
       <!--右側-->
   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
@@ -74,22 +64,35 @@
     </tr>
   
   
-  
   </table>
      
-    
       
     <% else %>
+     <br><br>
      <div class="row justify-content-center">
+        <h4 class="text-center">♡文鳥を愛でるアプリケーション♡</h4>
+        <h2 class="text-center"><strong>"ちゅんちゅん”</strong></h2>
       <h5>このアプリケーションは、文鳥を愛してやまない文鳥ファンが </h5>
       <br>
       <h5>文鳥の画像を投稿したり見たりして交流をはかるサイトです。</h5>
       <h5>おうちの文鳥や、お気に入りの画像を投稿してください。</h5>
       <h5>かわいい文鳥をたくさん見て、明日からの活力にしましょう！</h5>
     
-        <br><br><br><br><br><br><br><br>
-     
+        <br><br><br><br>
+        <% if user_signed_in? %>
+        <% else %>
+        <div class="btn-wrapper col-10 mx-auto">
+          <div>
+            <%= link_to "巣箱に入る（ログイン）", new_user_session_path, class: "btn moe-btn btn-sm btn-block mb-3 sign_in"%>
+          </div>
+           <div>
+            <%= link_to "仲間になる（新規登録）", new_user_registration_path, class: "btn moe-btn btn-sm btn-block sign_up"%>
+           </div>
+        </div>
+        <% end %>
+        
       </div>
+      <br><br><br><br>
     <% end %> 
        <div class="top2 mr-4 text-center">
           <%= image_tag("haku2.jpg", size:"300x400") %>

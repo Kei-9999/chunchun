@@ -1,8 +1,10 @@
 <div class="container px-1 px-sm-0">
- <h1>♡ぶんちょう♡</h1>
+
  <div class="row">
   <div class="col-md-6">
-    <%= attachment_image_tag @post, :post_image, size: "500x400", format: 'jpeg' %>
+   <div class = "text-center">
+    <h1>♡ぶんちょう♡</h1>
+     <%= attachment_image_tag @post, :post_image, format: 'jpeg', class: "post-show-image" %>
   
    <br>
    <br>
@@ -16,6 +18,7 @@
       <div id="kawaii_buttons_<%= @post.id %>">
       <%= render 'kawaiis/kawaii', post: @post %>
       </div>
+    </div>
   </div>
 
 
@@ -27,8 +30,8 @@
          <%= @post.post_detail %>
         <br>
          <% if @user.id == current_user.id %>
-          <td><%= link_to "書き加える", "/posts/#{@post.id}/edit", class: "moe-btn" %></td>
-          <td><%= link_to "バイバイする", "/posts/#{@post.id}", class: "nae-btn",method: :delete %></td>
+          <td><%= link_to "書き加える", edit_post_path(@post.id), class: "moe-btn" %></td>
+          <td><%= link_to "バイバイする", post_path(@post.id), class: "nae-btn",method: :delete %></td>
          <% end %>
         <br>
        

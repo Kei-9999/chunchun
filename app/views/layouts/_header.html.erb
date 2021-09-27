@@ -17,7 +17,9 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         
-          <li><%= link_to '巣箱',user_path(current_user),class: 'fas fa-home nav-link text-light' %></li>
+          <li>
+            <%= link_to '巣箱',user_path(current_user),class: 'fas fa fa-home nav-link text-light' %>
+            </li>
           <li><%= link_to '文鳥自慢',new_post_path ,class: 'fas fa-grin-beam nav-link text-light'%></li>
           <li><%= link_to '文鳥仲間',users_path ,class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to '文鳥写真',posts_path ,class: 'fas fa-solid fa-images nav-link text-light'%></li>

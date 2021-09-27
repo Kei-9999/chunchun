@@ -24,10 +24,10 @@
 
    <tbody>
     <% @users.each do |user| %><tr>
-     <td><%= attachment_image_tag user, :user_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %></td>
+     <td><%= attachment_image_tag user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-index-image"%></td>
 
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
+      <td class="ud-middle" style="vertical-align: middle; width:300px;"><%= user.name %></td>
+      <td class="ud-middle" style="vertical-align: middle; width:600px;"><%= user.introduction %></td>
       <td>
     <!--% if user.id != current_user.id %>-->
     <!--     % if current_user.following? %>-->
@@ -37,7 +37,7 @@
     <!--     % end %>-->
     <!--    % end %>-->
       </td>
-      <td>
+      <td class="ud-middle" style="vertical-align: middle; width:150px;">
        <span>
         <%= link_to "見にいく！", "/users/#{user.id}", class: "moe-btn"  %>
        </span>
@@ -47,7 +47,7 @@
       
     </tbody>
        
-　</table>
+  </table>
      <%= paginate @users %>
     </div>
    </div>

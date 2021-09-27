@@ -2,10 +2,10 @@
 <p class="alert"><%= alert %></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
-   <div class="col-md-3">
-     <h2 class= text-center>♡とまり木♡</h2>
+   <div class="col-md-4">
+     <h2 class= text-center>♡とまりぎ♡</h2>
       <div class = text-center>
-       <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+       <%= attachment_image_tag @user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-index-image" %>
       </div>
         <table class="table">
          <tbody>
@@ -17,11 +17,13 @@
            </tr>
            <tr>
   	        <th>さえずり</th>
+  	        </tr>
   	        <br>
-  	        <th><%= @user.introduction %></th>
+  	        <tr>
+  	        <td colspan="2"><%= @user.introduction %></th>
            </tr>
            <tr>
-            <th>♡追っかけ♡</th>
+            <th width="135">♡追っかけ中♡</th>
              <td>
               <%= link_to user_relationship_follow_path(@user) do %>
               <%= @user.followings.count %>
@@ -68,21 +70,26 @@
             <tr>
             
              <th>♡文鳥♡</th>
-             <th class="title-left">エピソード</th>
-             <th></th>
+             <th>エピソード</th>
+             <th>♡</th>
+             <th><i class="far fa-comment-dots"></i></th>
+            
             </tr>
            </thead>
        <tbody>
         <% @posts.each do |post| %><tr>
 
             <td><%= link_to post_path(post) do %>
-                <%= attachment_image_tag post, :post_image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg" %>
+                <%= attachment_image_tag post, :post_image, size: "200x180", format: 'jpeg', fallback: "no_image.jpg", class: "user-show-image" %>
                 <% end %>
             </td>
 
-            <td class="post-column"><%= post.post_detail %></td>
+            <td class="post-column" style="vertical-align: middle;"><%= post.post_detail %></td>
             
-            <td><%= post.comments.count %></td>
+            <td class="ud-middle" style="vertical-align: middle;">♡<%= post.likes.count %>
+            <br>♥<%= post.kawaiis.count %>♥</td>
+            
+            <td class="ud-middle" style="vertical-align: middle;"><%= post.comments.count %></td>
 
           </tr>
            <% end %>
