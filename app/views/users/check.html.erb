@@ -12,13 +12,13 @@
     <div class="col text-center">
       退会すると、会員登録情報や</br>
       これまでの投稿・コメントが全て削除されます。</br>
-      退会する場合は、「退会する」をクリックしてください。
+      退会する場合は、「巣立つ」をクリックしてください。
     </div>
   </div>
 
   <div class="row d-flex justify-content-center mt-5 mb-5">
     <%= link_to "巣箱に戻る", user_path(current_user), class:"mr-3 moe-btn" %>
-    <%= link_to "巣立つ", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+    <%= link_to "巣立つ", user_path(@user), class:"mr-3 nae-btn", method: :delete, "data-confirm" => "本当に退会しますか？" %>
   </div>
 </div>
 </div>

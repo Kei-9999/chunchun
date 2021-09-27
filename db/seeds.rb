@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#Admin.create({wmail: ENV["ADMIN_EMAIL"], password: ENV["PASSWORD"]})
+# .env
+#rails db:seed RAILS_ENV=production

@@ -1,8 +1,10 @@
-<h1>♡ぶんちょう♡</h1>
 <div class="container px-1 px-sm-0">
+
  <div class="row">
   <div class="col-md-6">
-    <%= attachment_image_tag @post, :post_image, size: "500x400", format: 'jpeg' %>
+   <div class = "text-center">
+    <h1>♡ぶんちょう♡</h1>
+     <%= attachment_image_tag @post, :post_image, format: 'jpeg', class: "post-show-image" %>
   
    <br>
    <br>
@@ -16,17 +18,20 @@
       <div id="kawaii_buttons_<%= @post.id %>">
       <%= render 'kawaiis/kawaii', post: @post %>
       </div>
+    </div>
   </div>
 
- <div class="row">      
+
+<!--右側-->  
+  <div class="col-md-6">
    <div class="col-md-30">
      <h2>エピソード</h2>
         <br>
          <%= @post.post_detail %>
         <br>
          <% if @user.id == current_user.id %>
-          <td><%= link_to "Edit", "/posts/#{@post.id}/edit" %></td>
-          <td><%= link_to "Destroy", "/posts/#{@post.id}",method: :delete %></td>
+          <td><%= link_to "書き加える", edit_post_path(@post.id), class: "moe-btn" %></td>
+          <td><%= link_to "バイバイする", post_path(@post.id), class: "nae-btn",method: :delete %></td>
          <% end %>
         <br>
        
@@ -36,16 +41,16 @@
         <br>
        <div>
          <%= form_with(model:[@post, @new_comment], url: post_comments_path(@post.id)) do |f| %>
-         <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", id:"text_area" %>
-         <%= f.submit "送信する", id:"comment_submit" %>
+         <%= f.text_area :comment, rows:'10',cols:"50",placeholder: "コメントをここに", id:"text_area" %>
+         <br>
+         <%= f.submit "声援をおくる", id:"comment_submit", class: "moe-btn" %>
          <% end %>
        </div>
             
        
     </div>
    </div>
-  </div>
-</div>
+
 
 
 

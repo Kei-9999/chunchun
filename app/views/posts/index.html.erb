@@ -5,52 +5,55 @@
 
 <h2>♡かわいい文鳥たち♡</h2>
 
- <table class="table table-hover table-inverse">
+ <table class="table table-hover table-striped">
 
    <thead>
      <tr>
       <th>ごしゅじん</th>
       <th>♡ぶんちょう♡</th>
-      <th class="title-left">エピソード</th>
+      <th>エピソード</th>
       <th>♡おうえん♡</th>
-      <th>♡ひとこと♡</th>
+      <th><i class="far fa-comment-dots"></i></th>
      </tr>
    </thead>
 
     <tbody>
         <% @posts.each do |post| %>
         <tr>
-            <td>
+            <td class="ud-middle" style="vertical-align: middle;">
              <%= link_to user_path(post.user) do %>
-             <%= attachment_image_tag post.user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %>
+             <%= attachment_image_tag post.user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-post-index-image" %>
              <% end %>
             </td>
-            <td>
+            
+            <td class="ud-middle" style="vertical-align: middle;">
              <%= link_to post_path(post) do %>
-              <%=  attachment_image_tag post, :post_image, size: "300x200", format: 'jpeg', fallback: "no_image.jpg"  %>
+              <%=  attachment_image_tag post, :post_image, format: 'jpeg', fallback: "no_image.jpg", class: "post-index-image" %>
              <% end %>
             </td>   
-            <td class="post-column"><%= post.post_detail %></td>
-            <td>
+            
+            <td class="post-column", width="430" style="vertical-align: middle;"><%= post.post_detail %></td>
+            
+            <td class="ud-middle" style="vertical-align: middle;">
               <% if post.user.id != current_user.id %> 
               <div id="likes_buttons_<%= post.id %>">
                <%= render 'likes/like', post: post %>
               </div>
               <% else %>
-              <p>♥<%= post.likes.count %>いいね</p>
+              <div>♥<%= post.likes.count %>いいね</div>
               <% end %>
-              <br>
+              
               <div id="kawaii_buttons_<%= post.id %>">
               <%= render 'kawaiis/kawaii', post: post %>
               </div>
             </td>
-           <td><%= post.comments.count %></td>
+            
+           <td class="ud-middle" style="vertical-align: middle;"><%= post.comments.count %></td>
         <!--</tr>-->
         <% end %>
 
-    </tbody>
-</table>
-
-    </div>
+     </tbody>
+    </table>
+   <%= paginate @posts %>
   </div>
 </div>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!
     def index
-        @posts = Post.all
+        @posts = Post.all.page(params[:page]).per(10).order(id: "DESC")
         @user = current_user
     end
     
@@ -38,14 +39,14 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if @post.user != current_user
-      redirect_to books_path
+      redirect_to posts_path
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to user_path(current_user.id) 
   end
     
 private

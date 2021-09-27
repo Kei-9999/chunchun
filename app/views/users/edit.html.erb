@@ -20,17 +20,17 @@
   <%= f.attachment_field :user_image %>
   <br>
   <h4>さえずり</h4>
-  <%= f.text_area :introduction %>
+  <%= f.text_area :introduction, size: "50x8" %>
   <br>
   <br>
-  <%= f.submit '羽繕い完了' %>
+  <%= f.submit '羽繕い完了', class: "moe-btn" %>
   
   <% end %>
 
  
   
   <br>
-  <p><%= link_to "巣立ち（退会）", users_check_path %></p>
+  <p><%= link_to "巣立ち（退会）", users_check_path, class: "nae-btn" %></p>
 
    </div>
   </div>

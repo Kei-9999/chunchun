@@ -5,32 +5,32 @@
   <% end %>
 <% end %>
 
-　<div class="container">
+  <div class="container">
     <div class="row">
      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-　　　<h1>羽繕い</h1>
+      <h2>羽繕い</h2>
 
-　　　　<%= form_with model:@post, url:"/posts/#{@post.id}", local:true do |f| %>
+        <%= form_with model: @post, url:"/posts/#{@post.id}", local:true do |f| %>
 
-  　　　<div class="form-group">
+      <div class="form-group">
 
            <%= f.label:title,"しゃしん" %>
            <br>
            <%=f.attachment_field :post_image %>
 
- 　 　　</div>
- 　 　　
+        </div>
+        
         <div class="form-group">
-         <%= f.label:body,"エピソード" %>
+         <%= f.label :pose_detail,"エピソード" %>
          <br>
-         <%= f.text_area :body,class:"form-control" %>
+         <%= f.text_area :post_detail, size: "30x10",class:"form-control" %>
       </div>
          <br>
-           <%= f.submit '羽繕い完了',class:"btn btn-success" %>
+           <%= f.submit '羽繕い完了',class:"moe-btn" %>
 
            <br>
-           <%= link_to "文鳥画像", post_path(@post.id)%> | <%= link_to "もどる", posts_path %></p>
+           <%= link_to "もどる", post_path(@post.id), class: "nae-btn" %>
         <% end %>
       </div>
     </div>
