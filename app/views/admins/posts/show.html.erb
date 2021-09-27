@@ -24,9 +24,9 @@
            <%= comment.created_at.strftime('%Y/%m/%d') %>
            <br>
            <%= comment.comment %>
-         <div class="comment-delete">
-          <%= link_to "Delete", admins_post_comment_path(comment.post_id,comment.id), method: :delete, local: true%>
-         </div>
+         <!--<div class="comment-delete">-->
+         <!-- %= link_to "Delete", admins_post_comment_path(comment.post_id,comment.id), method: :delete, local: true%>-->
+         <!--</div>-->
          <% end %> 
       </div>
     </div>
