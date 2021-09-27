@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <h2>User info</h2>
     <td><%= link_to admins_user_path(@user) do %>
-       <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+       <%= attachment_image_tag @user, :user_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" ,class: "circle" %>
       <% end %>
 　   </td>
       <table class="table">
