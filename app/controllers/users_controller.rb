@@ -39,8 +39,7 @@ class UsersController < ApplicationController
   end
   
   def search
-      #binding.pry
-      @users = User.search(params[:keyword])
+      @users = User.search(params[:keyword]).page(params[:page])
       @keyword = params[:keyword]
       render "index"
   end

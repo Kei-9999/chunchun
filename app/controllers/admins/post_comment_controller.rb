@@ -1,8 +1,9 @@
 class Admins::PostCommentController < ApplicationController
     def destroy
-    @post = Post.find_by(id: params[:post_id])
+    # @post = Post.find_by(id: params[:post_id])
     # binding.pry
-    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    redirect_to admins_posts_path
+    comment = Comment.find_by(id: params[:id])
+    comment.destroy
+    redirect_to admins_post_path(comment.post_id)
     end
 end

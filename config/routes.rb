@@ -53,5 +53,7 @@ end
   
   get '/search', to: 'users#search'
 
+  get 'posts/search', to: 'posts#search'
+  
 end
 

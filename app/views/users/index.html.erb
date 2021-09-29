@@ -1,31 +1,26 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
- <div class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0">
   <div class="row">
-<h2>♡文鳥ファンのみなさま♡</h2>
-
-<table class="table table-hover table-striped">
- 
-<!-- <div class="search-form">-->
-<!--  %= form_with url: search_path, method: :get, local: true do |f| %>-->
-<!--    %= f.text_field :keyword, value: @keyword %>-->
-<!--    %= f.submit "検索" %>-->
-<!--  % end %>-->
-<!--</div>-->
-
-
- <thead>
-  <tr>
-   <th></th>
-   <th>なまえ</th>
-   <th>さえずり</th>
-  </tr>
- </thead>
-
-   <tbody>
-    <% @users.each do |user| %><tr>
-     <td><%= attachment_image_tag user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-index-image"%></td>
-
+    <h2>♡文鳥ファンのみなさま♡</h2>
+     <div class="search-form" style = "margin-left: 25%;">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit "よぶ！", class: "moe-btn"%>
+      <% end %>
+      </div>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>なまえ</th>
+          <th>さえずり</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+       <tr>
+       <td><%= attachment_image_tag user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-index-image"%></td>
       <td class="ud-middle" style="vertical-align: middle; width:300px;"><%= user.name %></td>
       <td class="ud-middle" style="vertical-align: middle; width:600px;"><%= user.introduction %></td>
       <td>
@@ -39,18 +34,13 @@
       </td>
       <td class="ud-middle" style="vertical-align: middle; width:150px;">
        <span>
-        <%= link_to "見にいく！", "/users/#{user.id}", class: "moe-btn"  %>
+        <%= link_to "とんでいく", "/users/#{user.id}", class: "moe-btn"  %>
        </span>
       </td>
      </tr>
      <% end %>
-      
     </tbody>
-       
-  </table>
-     <%= paginate @users %>
-    </div>
+   </table>
+   <%= paginate @users %>
    </div>
-  </div>
- 
-</div>
+ </div>

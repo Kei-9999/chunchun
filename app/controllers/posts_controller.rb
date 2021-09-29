@@ -48,6 +48,12 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to user_path(current_user.id) 
   end
+  
+  def search
+      @posts = Post.search(params[:keyword]).page(params[:page])
+      @keyword = params[:keyword]
+      render "index"
+  end
     
 private
   def post_params
