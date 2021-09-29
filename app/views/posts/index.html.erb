@@ -3,12 +3,12 @@
  <div class="container px-5 px-sm-0">
   <div class="row">
    <h2>♡かわいい文鳥たち♡</h2>
-    <!--<div class="search-form" style = "margin-left: 25%;">-->
-    <!--  %= form_with url: posts_search_path, method: :get, local: true do |f| %>-->
-    <!--      %= f.text_field :keyword, value: @keyword %>-->
-    <!--      %= f.submit "見たい！", class: "moe-btn"%>-->
-    <!--  % end %>-->
-    <!--</div>-->
+    <div class="search-form" style = "margin-left: 25%;">
+      <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, value: @keyword %>
+          <%= f.submit "見たい！", class: "moe-btn"%>
+      <% end %>
+    </div>
  <table class="table table-hover table-striped">
    <thead>
      <tr>

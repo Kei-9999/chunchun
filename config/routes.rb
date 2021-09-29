@@ -23,6 +23,7 @@ resources :users do
  # end
 end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+get 'posts/search', to: 'posts#search'
 resources :posts do
  resources :comments, only: [:create, :destroy]
 end
@@ -53,7 +54,7 @@ end
   
   get '/search', to: 'users#search'
 
-  get 'posts/search', to: 'posts#search'
+  
   
 end
 
