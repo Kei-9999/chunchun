@@ -35,7 +35,8 @@
              <% end %>
             </td>   
             
-            <td class="post-column", width="430" style="vertical-align: middle;"><%= post.post_detail %></td>
+            <td class="post-column", width="430" style="vertical-align: middle;"><%= post.post_detail %><span class="sentiment-score">本文の感情分析スコア<%= post.score %></span>
+</td>
             
             <td class="ud-middle" style="vertical-align: middle;">
               <% if post.user.id != current_user.id %> 

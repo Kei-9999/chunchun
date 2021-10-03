@@ -76,3 +76,5 @@ group :production do
 end
 
 gem 'kaminari'
+
+gem 'dotenv-rails'

@@ -10,10 +10,15 @@ class PostsController < ApplicationController
     end
     def create
       @post = Post.new(post_params)
+      @post.score = Language.get_data(post_params[:post_detail])  #この行を追加
       @post.user_id = current_user.id
       flash[:notice] = 'Post was successfully created.'
      if @post.save
       redirect_to post_path(@post)
+      tags = Vision.get_image_data(@post.post_image)    
+      tags.each do |tag|
+       @post.tags.create(tag_name: tag)
+      end
      else
       render :new
      end
@@ -23,6 +28,8 @@ class PostsController < ApplicationController
        @post = Post.find(params[:id])
        @user = @post.user
        @new_comment = Comment.new
+       @tags = Tag.where(id: PostTagRelation.where(post_id: @post.id).pluck(:tag_id))
+
     end
     
   def update
