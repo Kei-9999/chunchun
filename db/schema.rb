@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_134949) do
+ActiveRecord::Schema.define(version: 2021_10_03_075712) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2021_09_20_134949) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_tag_relations", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_tag_relations_on_post_id"
+    t.index ["tag_id"], name: "index_post_tag_relations_on_tag_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "like_id"
@@ -57,11 +66,18 @@ ActiveRecord::Schema.define(version: 2021_09_20_134949) do
     t.datetime "updated_at", null: false
     t.string "post_image_id"
     t.integer "kawaii_id"
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
