@@ -13,14 +13,14 @@
             <tr>
   	         <th>なまえ</th>
   	          <br>
-  	          <th><%= @user.name %></th>
+  	          <th class="text-break"><%= @user.name %></th>
            </tr>
            <tr>
-  	        <th>さえずり</th>
+  	         <th>さえずり</th>
   	        </tr>
   	        <br>
   	        <tr>
-  	        <td colspan="2"><%= @user.introduction %></th>
+  	          <td colspan="2" class="text-break"><%= @user.introduction %></td>
            </tr>
            <tr>
             <th width="135">♡追っかけ中♡</th>
@@ -65,14 +65,15 @@
  <!--右側-->
       <div class="col-md-8">
         <h2>♡文鳥との幸せな日々♡</h2>
+        <div class="table-responsive">
           <table class="table table-hover table-inverse">
            <thead>
             <tr>
             
-             <th>♡文鳥♡</th>
-             <th>エピソード</th>
-             <th>♡</th>
-             <th><i class="far fa-comment-dots"></i></th>
+             <th nowrap style="width:40%;">♡ぶんちょう♡</th>
+             <th nowrap style="width:40%;">♡文鳥とのおもいで♡</th>
+             <th nowrap style="width:10%;">♡♥</th>
+             <th nowrap style="width:10%;"><i class="far fa-comment-dots"></i></th>
             
             </tr>
            </thead>
@@ -84,7 +85,7 @@
                 <% end %>
             </td>
 
-            <td class="post-column" style="vertical-align: middle;"><%= post.post_detail %></td>
+            <td class="post-column text-break" style="vertical-align: middle;"><%= post.post_detail %></td>
             
             <td class="ud-middle" style="vertical-align: middle;">♡<%= post.likes.count %>
             <br>♥<%= post.kawaiis.count %>♥</td>
@@ -96,6 +97,7 @@
 
        </tbody>
       </table>
+     </div>
       <%= paginate @posts %>
     </div>
   </div>

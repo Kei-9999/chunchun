@@ -9,14 +9,15 @@
           <%= f.submit "見たい！", class: "moe-btn"%>
       <% end %>
     </div>
+<div class="table-responsive">
  <table class="table table-hover table-striped">
    <thead>
      <tr>
-      <th>ごしゅじん</th>
-      <th>♡ぶんちょう♡</th>
-      <th>エピソード</th>
-      <th>♡おうえん♡</th>
-      <th><i class="far fa-comment-dots"></i></th>
+      <th nowrap style="width:10%;">ごしゅじん</th>
+      <th nowrap style="width:30%;">♡ぶんちょう♡</th>
+      <th nowrap style="width:35%;">♡文鳥とのおもいで♡</th>
+      <th nowrap style="width:20%;">♡いいね♡&♥かわいいね♥</th>
+      <th nowrap style="width:5%;"><i class="far fa-comment-dots"></i></th>
      </tr>
    </thead>
 
@@ -25,18 +26,19 @@
         <tr>
             <td class="ud-middle" style="vertical-align: middle;">
              <%= link_to user_path(post.user) do %>
-             <%= attachment_image_tag post.user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-post-index-image" %>
+             <%= attachment_image_tag post.user, :user_image, format: 'jpeg', fallback: "no_image.jpg", class: "user-post-index-image", style:"width:100%" %>
              <% end %>
             </td>
             
             <td class="ud-middle" style="vertical-align: middle;">
              <%= link_to post_path(post) do %>
-              <%=  attachment_image_tag post, :post_image, format: 'jpeg', fallback: "no_image.jpg", class: "post-index-image" %>
+              <%=  attachment_image_tag post, :post_image, format: 'jpeg', fallback: "no_image.jpg", class: "post-index-image", style:"width:100%" %>
              <% end %>
             </td>   
             
-            <td class="post-column", width="430" style="vertical-align: middle;"><%= post.post_detail %><span class="sentiment-score">本文の感情分析スコア<%= post.score %></span>
-</td>
+            <td class="post-column text-break", style="vertical-align: middle;"><%= post.post_detail %>
+             <span class="sentiment-score">本文の感情分析スコア<%= post.score %></span>
+            </td>
             
             <td class="ud-middle" style="vertical-align: middle;">
               <% if post.user.id != current_user.id %> 
@@ -58,6 +60,7 @@
 
      </tbody>
     </table>
+   </div>
    <%= paginate @posts %>
   </div>
 </div>

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
       tags = Vision.get_image_data(@post.post_image)    
       tags.each do |tag|
-       @post.tags.create(tag_name: tag)
+      @post.tags.create(tag_name: tag)
       end
      else
       render :new
